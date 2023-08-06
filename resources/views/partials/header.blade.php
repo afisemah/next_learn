@@ -47,14 +47,21 @@
 
   <ul class="menu-inner py-1">
     <!-- Dashboard -->
-    <li class="menu-item">
-      <a href="index.html" class="menu-link">
+    <li class="menu-item {{ request()->is('index*') ? 'active' : '' }}">
+      <a href="{{ route('index') }}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div data-i18n="Analytics">Tableau de bord</div>
       </a>
     </li>
-<!-- Eleves -->
-<li class="menu-item">
+    <li class="menu-item {{ request()->is('smsnot*') ? 'active' : '' }}">
+      <a href="{{ route('smsnot') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Analytics">SMS+Notification</div>
+      </a>
+    </li>
+
+    <!-- Eleves -->
+    <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-layout"></i>
         <div data-i18n="Layouts">Eleves</div>
@@ -77,9 +84,6 @@
         </li>
       </ul>
     </li>
-    <li class="menu-header small text-uppercase">
-      <span class="menu-header-text">-------------------</span>
-    </li>
     <li class="menu-item {{ request()->is('enseignants*') || request()->is('matieres*') ? 'open active' : '' }}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-cube-alt"></i>
@@ -91,7 +95,7 @@
             <div data-i18n="Error">Listes des Enseigants</div>
           </a>
         </li>
-      
+
       </ul>
     </li>
     <li class="menu-item {{request()->is('school-configuration*') || request()->is('matiere*') || request()->is('punition*') || request()->is('vacance*') || request()->is('salle*') || request()->is('classes*') || request()->is('niveaux*') || request()->is('specialites*') || request()->is('modules*') || request()->is('sessions-scolaires*') || request()->is('annees-scolaires*') ? 'open active' : '' }}">

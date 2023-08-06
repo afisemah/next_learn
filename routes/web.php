@@ -2,9 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
-use App\Http\Controllers\SpecialityController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +13,8 @@ Route::get('/', function () {
 });
 Route::get('/index', function () {
     return view('index');
-});
+})->name('index'); // Définir le nom de la route comme "index"
+
 Route::get('/acceuil', function () {
     return view('acceuil');
 });
@@ -40,6 +38,11 @@ Route::get('/classes', function () {
 Route::get('/niveaux', function () {
     return view('niveaux');
 });
+
+Route::get('/smsnot', function () {
+    return view('smsnot'); // Assurez-vous que le fichier smsnot.blade.php existe dans le dossier views
+})->name('smsnot');
+
 
 // spécialité
 use App\Http\Controllers\SpecialiteController;
